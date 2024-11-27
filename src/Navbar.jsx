@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const isAuthenticated = true; // Используйте состояние для управления аутентификацией
+  const isAuthenticated = false; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -11,13 +13,22 @@ function Navbar() {
   const userImage =
     "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
 
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+      navigate('/login'); // Переход на страницу логина
+    };
+
   return (
     <>
       <div className="navbar shadow px-4 flex flex-row z-50">
       {/* Логотип */}
-        <a className="btn btn-ghost normal-case pl-1 pr-1">
+        {/* <a className="btn btn-ghost normal-case pl-1 pr-1">
           <img className="w-11" src="/favicon.svg" alt="Logo" />
-        </a>
+        </a> */}
+        <Link to="/" className="btn btn-ghost normal-case pl-1 pr-1">
+        <img className="w-11" src="/favicon.svg" alt="Logo" />
+      </Link>
       
       {/* Строка поиска */}
       <div className="flex-1 px-1">
@@ -80,7 +91,7 @@ function Navbar() {
       <div className="basis-0.5">
         {!isAuthenticated ? (
           /* Если пользователь не аутентифицирован */
-          <button className="btn btn-sm mr-0.5">Login</button>
+          <button className="btn btn-sm mr-0.5" onClick={handleLogin}>Login</button>
         ) : (
           /* Если пользователь аутентифицирован */
           <div className="flex gap-2 items-center pr-1">

@@ -1,7 +1,7 @@
 function Statistics() {
     return (
         <>
-            <div className="grid grid-col-1 bg-base-100 col-span-2 gap-2">
+            <div className="grid grid-col-1 bg-base-100  col-span-2 gap-2">
                 
                 {/* <div className="border rounded-md h-full content-end"> */}
                     
