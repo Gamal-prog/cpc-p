@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 function Navbar() {
-  const isAuthenticated = false; // Используйте состояние для управления аутентификацией
+  const isAuthenticated = true; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -13,12 +13,12 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar shadow px-4 flex flex-row">
+      <div className="navbar shadow px-4 flex flex-row z-50">
       {/* Логотип */}
         <a className="btn btn-ghost normal-case pl-1 pr-1">
           <img className="w-11" src="/favicon.svg" alt="Logo" />
         </a>
-
+      
       {/* Строка поиска */}
       <div className="flex-1 px-1">
         <div className="dropdown w-5/6">
@@ -48,7 +48,7 @@ function Navbar() {
           <input
                 type="text"
                 placeholder="Search photos and illustrations"
-                className={`w-5/6 h-9 pl-3 pr-12 border-none focus:outline-none ${isFocused ? "bg-base-100" : "bg-zinc-200"}`}
+                className={`w-full rounded-full h-9 pl-3 pr-12 border-none focus:outline-none ${isFocused ? "bg-base-100" : "bg-zinc-200"}`}
               />
             
         </div>
@@ -135,11 +135,10 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48"
           >
-            <li>
-              <span>
+            <div className="flex flex-row px-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 mt-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -149,8 +148,10 @@ function Navbar() {
                     strokeWidth="2"
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
-                <h5>Company</h5>
-              </span>
+                <h5 className="pl-2 mt-1 mb-1"><strong>Company</strong></h5>
+              </div>
+            <li>
+              
               <ul>
                 <li><a href="">About</a></li>
                 <li><a href="">Contact us</a></li>
