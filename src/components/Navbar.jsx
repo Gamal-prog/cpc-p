@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const isAuthenticated = false; // Используйте состояние для управления аутентификацией
+  const isAuthenticated = true; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -99,7 +99,7 @@ function Navbar() {
           /* Если пользователь аутентифицирован */
           <div className="flex gap-2 items-center pr-1">
             {/* Уведомления */}
-            <button className="btn btn-ghost">
+            {/* <button className="btn btn-ghost">
               <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -116,13 +116,52 @@ function Navbar() {
                   />
                 </svg>
                 {/* <span className="badge badge-xs badge-primary indicator-item"></span> при появлении уведомлений показ колич уведом*/}
-              </div>
-            </button>
+              {/*</div>
+            </button> */}
             {/* Аватар пользователя */}
-            <div className="avatar">
+            {/* <div className="avatar">
               <div className="w-9 h-9 rounded-full">
                 <img src={userImage} alt="User Avatar" />
               </div>
+            </div> */}
+            <div className="dropdown dropdown-end">
+              <button className="btn btn-ghost" tabIndex={0} role="button">
+                <div className="indicator">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                    />
+                  </svg>
+                  {/* <span className="badge badge-xs badge-primary indicator-item"></span> при появлении уведомлений показ колич уведом*/}
+                </div>
+              </button>
+              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-52 p-2 shadow border mt-3">
+                <li><a>Some info</a></li>
+              </ul>
+            </div>
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="avatar">
+                <div className="w-9 h-9 rounded-full">
+                  <img src={userImage} alt="User Avatar" />
+                </div>
+              </div> 
+              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box mt-4 w-52 p-2 shadow border">
+                <li>
+                  <ul>
+                    <li><a>View profile</a></li>
+                    <li><a>Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         )}
@@ -147,7 +186,7 @@ function Navbar() {
           </label>
           <ul 
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48 border"
           >
             <div className="flex flex-row px-2">
                 <svg
