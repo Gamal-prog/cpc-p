@@ -2,7 +2,7 @@ function Greating() {
 
     return (
         <>
-            <div className="grid grid-col-1 col-span-3">
+            <div className="grid">
                 <div className="content-end">
                     <h1 className="stat-value">Vibe</h1>
                     <p className="mt-2">
