@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { AnimatedLogo } from './AnimatedLogo.jsx';
 
 function Navbar() {
   const isAuthenticated = false; // Используйте состояние для управления аутентификацией
@@ -27,9 +28,8 @@ function Navbar() {
           <img className="w-11" src="/favicon.svg" alt="Logo" />
         </a> */}
         <Link to="/" className="btn btn-ghost normal-case pl-1 pr-1">
-        <img className="w-11" src="/favicon.svg" alt="Logo" />
-      </Link>
-      
+          <AnimatedLogo />
+        </Link>
       {/* Строка поиска */}
       <div className="flex-1 px-1">
         <div className="dropdown w-5/6">

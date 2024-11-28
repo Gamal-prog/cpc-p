@@ -5,6 +5,7 @@ import Statistics from './components/Statistics.jsx'
 import Login from './pages/Login.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+
 function App() {
     return (
         <>
