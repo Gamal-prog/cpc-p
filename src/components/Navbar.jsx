@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Logo_animation } from './Logo_animation.jsx'
 
 function Navbar() {
   const isAuthenticated = true; // Используйте состояние для управления аутентификацией
@@ -26,9 +27,10 @@ function Navbar() {
         {/* <a className="btn btn-ghost normal-case pl-1 pr-1">
           <img className="w-11" src="/favicon.svg" alt="Logo" />
         </a> */}
-        <Link to="/" className="btn btn-ghost normal-case pl-1 pr-1">
-        <img className="w-11" src="/favicon.svg" alt="Logo" />
-      </Link>
+        <Link to="/" className="btn btn-ghost normal-case px-1">
+          {/* <img className="w-11" src="/favicon.svg" alt="Logo" /> */}
+          <Logo_animation />
+        </Link>
       
       {/* Строка поиска */}
       <div className="flex-1 px-1">
@@ -92,7 +94,7 @@ function Navbar() {
         {!isAuthenticated ? (
           /* Если пользователь не аутентифицирован */
           // <div className="tooltip tooltip-bottom" data-tip="Login">
-            <button className="btn btn-sm mr-0.5" onClick={handleLogin}>Login</button>
+            <button className="btn btn-sm" onClick={handleLogin}>Log in</button>
           /* </div> */
         
         ) : (
