@@ -91,7 +91,10 @@ function Navbar() {
       <div className="basis-0.5">
         {!isAuthenticated ? (
           /* Если пользователь не аутентифицирован */
-          <button className="btn btn-sm mr-0.5" onClick={handleLogin}>Login</button>
+          // <div className="tooltip tooltip-bottom" data-tip="Login">
+            <button className="btn btn-sm mr-0.5" onClick={handleLogin}>Login</button>
+          /* </div> */
+        
         ) : (
           /* Если пользователь аутентифицирован */
           <div className="flex gap-2 items-center pr-1">
