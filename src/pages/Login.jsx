@@ -41,7 +41,7 @@ const App = () => {
                 <img
                   src="/gl.svg" // Замените на путь к иконке Google
                   alt="Google"
-                  className="h-6 w-6 mr-2"
+                  className="h-5 w-5 mr-2"
                 />
                 Google
               </a>
@@ -132,17 +132,23 @@ const App = () => {
 
           {/* Фиолетовый перекрывающий элемент */}
           <div
-            className={`toggle-container absolute top-0 h-full w-1/2 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white flex flex-col justify-center items-center p-8 ${
+            className={`toggle-container absolute top-0 h-full w-1/2 text-white flex flex-col justify-center items-center p-8 ${
               isSignUp ? 'translate-x-0' : 'translate-x-full'
             } transition-all duration-700`}
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1731353160468-9bac2e2e894f?q=80&w=2762&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+              backgroundSize: "cover", // Изображение заполняет элемент
+              backgroundPosition: "center", // Центрируем изображение
+              backgroundRepeat: "no-repeat",
+            }}  
           >
             <h1 className="text-3xl font-bold mb-4">
               {isSignUp ? 'Hello, Friend!' : 'Welcome Back!'}
             </h1>
             <p className="mb-8">
               {isSignUp
-                ? 'Sign up and start your journey with us'
-                : 'Sign in to keep connected with us'}
+                ? 'Registration and start your journey with us'
+                : 'Log in to continue your journey with us'}
             </p>
             
           </div>
@@ -314,26 +320,3 @@ export default App
 // };
 
 // export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
