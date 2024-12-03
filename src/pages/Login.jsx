@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const App = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -6,16 +6,14 @@ const App = () => {
   const handleToggle = () => setIsSignUp(!isSignUp);
 
   return (
-    <div
-      className="flex justify-center bg-cover bg-center"
-    >
-      <div className="bg-white rounded-lg w-full max-w-4xl overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left Panel */}
+    <div className="relative flex justify-center items-center">
+      <div className="container bg-white overflow-hidden max-w-4xl w-full">
+        <div className="relative flex transition-transform duration-700 ease-in-out">
+          {/* Форма Sign In */}
           <div
-            className={`p-8 transition-transform ${
-              isSignUp ? '-translate-x-full' : 'translate-x-0'
-            }`}
+            className={`form-container p-8 w-1/2 ${
+              isSignUp ? '-translate-x-full opacity-0' : 'translate-x-0 opacity-100'
+            } transition-all duration-700`}
           >
             <div className="flex justify-center">
               <h1 className="text-5xl font-bold mb-10">Login</h1>
@@ -77,13 +75,12 @@ const App = () => {
             </div>
           </div>
 
-          {/* Right Panel */}
+          {/* Форма Sign Up */}
           <div
-            className={`p-8 transition-transform ${
-              isSignUp ? 'translate-x-0' : 'translate-x-full'
-            }`}
+            className={`form-container p-8 w-1/2 ${
+              isSignUp ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+            } transition-all duration-700`}
           >
-            
             <div className="flex justify-center">
               <h1 className="text-5xl font-bold mb-10">Join Vibe</h1>
             </div>
@@ -132,14 +129,30 @@ const App = () => {
               </p>
             </div>
           </div>
-        </div>
 
+          {/* Фиолетовый перекрывающий элемент */}
+          <div
+            className={`toggle-container absolute top-0 h-full w-1/2 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white flex flex-col justify-center items-center p-8 ${
+              isSignUp ? 'translate-x-0' : 'translate-x-full'
+            } transition-all duration-700`}
+          >
+            <h1 className="text-3xl font-bold mb-4">
+              {isSignUp ? 'Hello, Friend!' : 'Welcome Back!'}
+            </h1>
+            <p className="mb-8">
+              {isSignUp
+                ? 'Sign up and start your journey with us'
+                : 'Sign in to keep connected with us'}
+            </p>
+            
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default App;
+export default App
 
 
 
@@ -150,7 +163,11 @@ export default App;
 
 
 
-// import React, { useState } from 'react'
+
+
+
+//mine mine mine
+// import React, { useState } from 'react';
 
 // const App = () => {
 //   const [isSignUp, setIsSignUp] = useState(false);
@@ -158,9 +175,14 @@ export default App;
 //   const handleToggle = () => setIsSignUp(!isSignUp);
 
 //   return (
-    
+//     <div
+//       className="flex justify-center bg-cover bg-center"
+//     >
+//       <div className=" bg-white rounded-lg w-full max-w-4xl overflow-hidden">
+//       <div className="grid grid-cols-1 md:grid-cols-2">
 
-//         <div className="grid grid-cols-1 md:grid-cols-2">
+        
+
 //           {/* Left Panel */}
 //           <div
 //             className={`p-8 transition-transform ${
@@ -229,7 +251,7 @@ export default App;
 
 //           {/* Right Panel */}
 //           <div
-//             className={`p-8 transition-transform ${
+//             className={`p-8 transition-transform  ${
 //               isSignUp ? 'translate-x-0' : 'translate-x-full'
 //             }`}
 //           >
@@ -281,141 +303,37 @@ export default App;
 //                 </button>
 //               </p>
 //             </div>
+
 //           </div>
 //         </div>
 
 
-//   );
-// };
-
-// export default App
-
-
-
-
-// import React, { useState } from 'react';
-
-// const App = () => {
-//   const [isSignUp, setIsSignUp] = useState(false);
-
-//   const handleToggle = () => setIsSignUp(!isSignUp);
-
-//   return (
-//     <div
-//       className="flex h-screen items-center justify-center bg-cover bg-center"
-//       style={{
-//         backgroundImage: "url('')",
-//       }}
-//     >
-//       <div className="bg-white shadow-xl rounded-lg w-full max-w-4xl overflow-hidden">
-//         <div className="grid grid-cols-1 md:grid-cols-2">
-//           {/* Left Panel */}
-//           <div
-//             className={`p-8 transition-transform ${
-//               isSignUp ? '-translate-x-full' : 'translate-x-0'
-//             }`}
-//           >
-//             <h1 className="text-2xl font-bold mb-4">Sign In</h1>
-//             <div className="mb-4 space-x-2">
-//               <a
-//                 href="#"
-//                 className="btn btn-circle bg-gray-200 text-gray-600"
-//               >
-//                 G
-//               </a>
-//               <a
-//                 href="#"
-//                 className="btn btn-circle bg-gray-200 text-gray-600"
-//               >
-//                 F
-//               </a>
-//               <a
-//                 href="#"
-//                 className="btn btn-circle bg-gray-200 text-gray-600"
-//               >
-//                 Gh
-//               </a>
-//             </div>
-//             <p className="mb-4">Or use your email account:</p>
-//             <form>
-//               <input
-//                 type="email"
-//                 placeholder="Email"
-//                 className="input input-bordered w-full mb-4"
-//               />
-//               <input
-//                 type="password"
-//                 placeholder="Password"
-//                 className="input input-bordered w-full mb-4"
-//               />
-//               <button className="btn btn-primary w-full">Sign In</button>
-//             </form>
-//           </div>
-
-//           {/* Right Panel */}
-//           <div
-//             className={`p-8 transition-transform ${
-//               isSignUp ? 'translate-x-0' : 'translate-x-full'
-//             }`}
-//           >
-//             <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
-//             <div className="mb-4 space-x-2">
-//               <a
-//                 href="#"
-//                 className="btn btn-circle bg-gray-200 text-gray-600"
-//               >
-//                 G
-//               </a>
-//               <a
-//                 href="#"
-//                 className="btn btn-circle bg-gray-200 text-gray-600"
-//               >
-//                 F
-//               </a>
-//               <a
-//                 href="#"
-//                 className="btn btn-circle bg-gray-200 text-gray-600"
-//               >
-//                 Gh
-//               </a>
-//             </div>
-//             <p className="mb-4">Or use your email for registration:</p>
-//             <form>
-//               <input
-//                 type="text"
-//                 placeholder="Name"
-//                 className="input input-bordered w-full mb-4"
-//               />
-//               <input
-//                 type="email"
-//                 placeholder="Email"
-//                 className="input input-bordered w-full mb-4"
-//               />
-//               <input
-//                 type="password"
-//                 placeholder="Password"
-//                 className="input input-bordered w-full mb-4"
-//               />
-//               <button className="btn btn-primary w-full">Sign Up</button>
-//             </form>
-//           </div>
-//         </div>
-//         <div className="bg-primary text-white text-center p-4">
-//           <p>
-//             {isSignUp
-//               ? 'Already have an account?'
-//               : "Don't have an account yet?"}{' '}
-//             <button
-//               className="underline text-sm"
-//               onClick={handleToggle}
-//             >
-//               {isSignUp ? 'Sign In' : 'Sign Up'}
-//             </button>
-//           </p>
-//         </div>
 //       </div>
 //     </div>
 //   );
 // };
 
 // export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
