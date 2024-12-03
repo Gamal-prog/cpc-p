@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Logo_animation } from './Logo_animation.jsx'
 
 function Navbar() {
-  const isAuthenticated = true; // Используйте состояние для управления аутентификацией
+  const isAuthenticated = false; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -214,7 +214,7 @@ function Navbar() {
                 <div className="flex flex-row">
                   <li>
                     <a href="https://web.whatsapp.com">
-                      <img className="w-5 h-5" src="/whatsapp.png" alt="" />
+                      <img className="w-5 h-5" src="/whatsapp.png" alt="Whatsapp" />
                     </a>
                   </li>
                   <li>

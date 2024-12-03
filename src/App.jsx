@@ -53,8 +53,8 @@ function App() {
               <Route
                 path="/"
                 element={
+                  <div>
                   <div className="grid grid-cols-12 gap-4">
-
                     <div className="col-span-5">
                       <Greating />
                     </div>
@@ -66,6 +66,10 @@ function App() {
                     <div className="col-span-5">
                       <HomeImage />
                     </div>
+                  </div>
+                    <div className="grid grid-cols-3 gap-4 py-8">
+                      
+                    </div>  
                   </div>
                 }
               />
