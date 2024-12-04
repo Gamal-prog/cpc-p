@@ -94,7 +94,10 @@ function Navbar() {
         {!isAuthenticated ? (
           /* Если пользователь не аутентифицирован */
           // <div className="tooltip tooltip-bottom" data-tip="Login">
-            <button className="btn btn-sm" onClick={handleLogin}>Log in</button>
+          <div className="flex gap-2 pr-1">
+            <button className="btn btn-sm mr-4" onClick={handleLogin}>Log in</button>
+          </div>
+            
           /* </div> */
         
         ) : (
