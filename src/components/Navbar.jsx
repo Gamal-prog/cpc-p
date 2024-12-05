@@ -38,11 +38,9 @@ function Navbar({ onSearch }) {
     <>
       <div className="navbar shadow px-4 flex flex-row z-50">
       {/* Логотип */}
-        {/* <a className="btn btn-ghost normal-case pl-1 pr-1">
-          <img className="w-11" src="/favicon.svg" alt="Logo" />
-        </a> */}
+        
         <Link to="/" className="btn btn-ghost normal-case px-1">
-          {/* <img className="w-11" src="/favicon.svg" alt="Logo" /> */}
+
           <Logo_animation />
         </Link>
       
@@ -120,20 +118,7 @@ function Navbar({ onSearch }) {
                   </button>
                 </div>
               </div>
-                {/* <div className="flex justify-between items-center mt-2">
-                  <h3 className="text-gray-700"><strong>Category</strong></h3>
-                </div>
-                <div className="flex gap-2 mt-2 flex-wrap">
-                  <button className="btn btn-sm">Add</button>
-                  <button className="btn btn-sm">del</button>
-                </div>
-              <div className="flex justify-between items-center flex-wrap mt-2">
-                  <h3 className="text-gray-700"><strong>Tranding</strong></h3>
-                </div>
-                <div className="flex gap-2 mt-2 mb-2 flex-wrap">
-                  <button className="btn btn-sm">Add</button>
-                  <button className="btn btn-sm">del</button>
-                </div> */}
+                
             </ul>
         </div>
 

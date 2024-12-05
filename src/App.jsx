@@ -8,41 +8,6 @@ import Card from './components/Card.jsx'
 import { getPhotos, getPhotosBySearch } from './api/query.js'
 import { useEffect, useState } from 'react'
 
-// function App() {
-//     return (
-//         <>
-//         <Router>
-
-//             <div className="min-h-screen">
-//             {/* Навбар сверху */}
-//                 <Navbar />
-
-//                 {/* Основной контент */}
-//                 <main className="flex-grow px-4 py-4 bg-base-100">
-//                 <Routes>
-//                 <Route
-//                     path="/"
-//                     element={
-//                         <div className="grid grid-cols-7 gap-2">
-//                             <Greating />
-//                             <Statistics />
-//                             <HomeImage /> 
-//                         </div>
-//                         // <div className="flex flex-row flex-wrap">
-
-//                         // </div>
-//                     }/>
-//                     <Route path="/login" element={<Login />} />
-//                 </Routes>
-//                 </main>
-//             </div>
-//             </Router>
-//         </>
-//     );
-// }
-
-// export default App
-
 function App() {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -115,20 +80,6 @@ function App() {
                     </div>
                   )}
 
-{/* {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div className="grid grid-cols-12 gap-4 mt-10">
-          {photos.map((photo) => (
-            <div className="col-span-4">
-            <Card key={photo.id} photo={photo} />
-            </div>
-          ))}
-        </div>
-      )} */}
-                    {/* <div className="grid grid-cols-12 gap-4 py-8">
-                      
-                    </div>   */}
                   </div>
                 }
               />

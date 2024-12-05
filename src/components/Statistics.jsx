@@ -1,5 +1,3 @@
-// 
-
 function Statistics() {
     return (
       <div className="grid gap-2 bg-base-100 h-full">
