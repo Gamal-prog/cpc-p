@@ -5,7 +5,7 @@ import Statistics from './components/Statistics.jsx'
 import Login from './pages/Login.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Card from './components/Card.jsx'
-import { getPhotos } from './api/query.js'
+import { getPhotos, getPhotosBySearch } from './api/query.js'
 import { useEffect, useState } from 'react'
 
 // function App() {
@@ -52,17 +52,26 @@ function App() {
       setLoading(true);
       const data = await getPhotos(21); // Запрашиваем 20 фото
       setPhotos(data); // Сохраняем фото в state
-      setLoading(false);
+      // setLoading(false);
     };
 
     loadPhotos();
   }, []);
 
+  const handleSearch = async (query) => {
+    setLoading(true);
+    const data = await getPhotosBySearch(query, 21); // Поиск фотографий
+    setPhotos(data);
+    // setLoading(false);
+  };
+
+
+
     return (
       <Router>
         <div className="min-h-screen flex flex-col">
           {/* Навбар сверху */}
-          <Navbar />
+          <Navbar onSearch={handleSearch} />
   
           {/* Основной контент */}
           <main className="flex-grow px-6 py-8 bg-base-100">
@@ -71,7 +80,7 @@ function App() {
                 path="/"
                 element={
                   <div>
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-12 gap-4 mt-6">
                     <div className="col-span-5">
                       <Greating />
                     </div>
@@ -87,7 +96,7 @@ function App() {
                   </div>
                   
                   {loading ? 
-                  <div className="grid grid-cols-3 gap-4 mt-10">
+                  <div className="grid grid-cols-3 gap-4 mt-12">
                       {Array.from({ length: 21 }).map((_, index) => 
                         <div
                           key={index}
@@ -97,7 +106,7 @@ function App() {
                       )}
                   </div>
                    : (
-                    <div className="grid grid-cols-12 gap-4 mt-10">
+                    <div className="grid grid-cols-12 gap-4 mt-12">
                       {photos.map((photo) => (
                         <div className="col-span-4">
                           <Card key={photo.id} photo={photo} />

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Logo_animation } from './Logo_animation.jsx'
 
-function Navbar() {
+function Navbar({ onSearch }) {
   const isAuthenticated = false; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
@@ -19,6 +19,20 @@ function Navbar() {
     const handleLogin = () => {
       navigate('/login'); // Переход на страницу логина
     };
+
+    //f
+    const [query, setQuery] = useState("");
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    if (query.trim()) {
+      onSearch(query);
+    }
+  };
+
 
   return (
     <>
@@ -42,7 +56,8 @@ function Navbar() {
           onBlur={handleBlur}
         >
           {/* Иконка лупы */}
-          <span className="pl-3 text-gray-500">
+          <span className="pl-3 text-gray-500" onClick={handleSearch}>
+          
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -55,6 +70,7 @@ function Navbar() {
                 strokeWidth="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
+
           </span>
 
           {/* Поле ввода */}
@@ -62,6 +78,8 @@ function Navbar() {
                 type="text"
                 placeholder="Search photos and illustrations"
                 className={`w-full rounded-full h-9 pl-3 pr-12 border-none focus:outline-none ${isFocused ? "bg-base-100" : "bg-zinc-200"}`}
+                value={query}
+                onChange={handleInputChange}
               />
             
         </div>

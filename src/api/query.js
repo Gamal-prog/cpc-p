@@ -19,24 +19,55 @@ export const getPhotos = async (count = 20) => {
       let result = [];
 
       for (let i = 1; i <= 21; i++) 
-        array.push(defaultList); 
+        result.push(defaultList); 
 
       return result;
       //return defaultList;
     }
 };
 
-export const getPhotosBySearch = async (query) => {
-  const API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY;
-  const URL = `https://api.unsplash.com/search/photos`;
+// export const getPhotosBySearch = async (query, count = 20) => {
+//   const API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY;
+//   const URL = `https://api.unsplash.com/search/photos`;
 
-  try {
-    const response = await axios.get(URL, {
-      params: { query, client_id: API_KEY },
-    });
-    console.log(response.data.results); 
-    return response.data.results;
-  } catch (error) {
-    console.error("Error searching photos with Axios:", error);
-  }
-};
+//   try {
+//     const response = await axios.get(URL, {
+//         params: { 
+//             count,
+//             query: query, 
+//             client_id: API_KEY 
+//         },
+//     });
+//     console.log(response.data.results); 
+//     return response.data.results;
+
+//   } catch (error) {
+//     console.error("Error searching photos with Axios:", error);
+//     let result = [];
+
+//     for (let i = 1; i <= 21; i++) 
+//         result.push(defaultList); 
+
+//     return result;
+//   }
+// };
+
+export const getPhotosBySearch = async (query, count = 21) => {
+    const API_KEY = import.meta.env.VITE_UNSPLASH_API_KEY;
+    const URL = `https://api.unsplash.com/search/photos`;
+  
+    try {
+      const response = await axios.get(URL, {
+        params: {
+          query,
+          per_page: count, // Количество фотографий
+          client_id: API_KEY,
+        },
+      });
+      return response.data.results; // Массив фотографий
+    } catch (error) {
+      console.error("Error searching photos with Axios:", error);
+      return []; // Возвращаем пустой массив в случае ошибки
+    }
+  };
+  
