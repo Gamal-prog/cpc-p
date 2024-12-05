@@ -96,7 +96,7 @@ function App() {
                   </div>
                   
                   {loading ? 
-                  <div className="grid grid-cols-3 gap-4 mt-12">
+                  <div className="grid grid-cols-3 gap-4 mt-14">
                       {Array.from({ length: 21 }).map((_, index) => 
                         <div
                           key={index}
@@ -106,7 +106,7 @@ function App() {
                       )}
                   </div>
                    : (
-                    <div className="grid grid-cols-12 gap-4 mt-12">
+                    <div className="grid grid-cols-12 gap-4 mt-14">
                       {photos.map((photo) => (
                         <div className="col-span-4">
                           <Card key={photo.id} photo={photo} />

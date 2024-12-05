@@ -86,9 +86,41 @@ function Navbar({ onSearch }) {
         <div tabIndex={0} role="button"></div>
             <ul 
               tabIndex={0}
-              className="menu dropdown-content bg-base-100 rounded-box max-w-2xl w-full mt-4 p-2 shadow"
+              className="menu dropdown-content bg-base-100 rounded-lg max-w-2xl w-full mt-4 p-2 shadow border"
             >
-                <div className="flex justify-between items-center mt-2">
+              <div className="flex flex-col py-2 px-2 gap-x-2 gap-y-2">
+                <h5><strong>Trending Searches</strong></h5> 
+                <div className="flex flex-row gap-3">
+                  <button className="btn btn-sm btn-outline btn-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                  </svg>
+                    animals
+                  </button>
+                  <button className="btn btn-sm btn-outline btn-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                  </svg>
+                    nature
+                  </button>
+                </div>
+                <h5><strong>Trending Topics</strong></h5>
+                <div className="flex flex-row gap-3">
+                  <button className="btn btn-sm btn-outline btn-accent">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                    Wallpaper
+                  </button>
+                  <button className="btn btn-sm btn-outline btn-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                  </svg>
+                    3D Renders
+                  </button>
+                </div>
+              </div>
+                {/* <div className="flex justify-between items-center mt-2">
                   <h3 className="text-gray-700"><strong>Category</strong></h3>
                 </div>
                 <div className="flex gap-2 mt-2 flex-wrap">
@@ -101,7 +133,7 @@ function Navbar({ onSearch }) {
                 <div className="flex gap-2 mt-2 mb-2 flex-wrap">
                   <button className="btn btn-sm">Add</button>
                   <button className="btn btn-sm">del</button>
-                </div>
+                </div> */}
             </ul>
         </div>
 
