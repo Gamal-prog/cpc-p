@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Card from './components/Card.jsx'
 import { getPhotos, getPhotosBySearch } from './api/query.js'
 import { useEffect, useState } from 'react'
+import Contact from './pages/Contact.jsx'
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -84,8 +85,12 @@ function App() {
                 }
               />
               <Route path="/login" element={<Login />} />
+              {/* <Route path="/contact-us" element={<Contact />} /> */}
             </Routes>
           </main>
+          <Routes>
+            <Route path="/contact-us" element={<Contact />} />
+          </Routes>
         </div>
       </Router>
     );
