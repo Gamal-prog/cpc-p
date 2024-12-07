@@ -8,6 +8,7 @@ import Card from './components/Card.jsx'
 import { getPhotos, getPhotosBySearch } from './api/query.js'
 import { useEffect, useState } from 'react'
 import Contact from './pages/Contact.jsx'
+import Help from './pages/Help.jsx';
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -90,6 +91,9 @@ function App() {
           </main>
           <Routes>
             <Route path="/contact-us" element={<Contact />} />
+          </Routes>
+          <Routes>
+            <Route path="/help-center" element={<Help />} />
           </Routes>
         </div>
       </Router>
