@@ -27,7 +27,7 @@ function App() {
     setLoading(true);
     const data = await getPhotosBySearch(query, 21); // Поиск фотографий
     setPhotos(data);
-    // setLoading(false);
+    setLoading(false);
   };
 
 
