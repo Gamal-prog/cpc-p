@@ -17,7 +17,7 @@ function App() {
       setLoading(true);
       const data = await getPhotos(21); // Запрашиваем 20 фото
       setPhotos(data); // Сохраняем фото в state
-      setLoading(false);
+      // setLoading(false);
     };
 
     loadPhotos();
@@ -27,7 +27,7 @@ function App() {
     setLoading(true);
     const data = await getPhotosBySearch(query, 21); // Поиск фотографий
     setPhotos(data);
-    setLoading(false);
+    // setLoading(false);
   };
 
 

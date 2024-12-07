@@ -33,6 +33,14 @@ function Navbar({ onSearch }) {
     }
   };
 
+  const [trendingSearch, setTrendingSearch] = useState(['animals', 'nature']);
+  const [trendingTopics, setTrendingTopics] = useState(['Wallpapers', '3D Renders']);
+
+  const handleDropdownClick = (option) => {
+    setQuery(option); // Устанавливаем выбранное значение в поле ввода
+    onSearch(option); // Вызываем поиск по выбранному значению
+  };
+
 
   return (
     <>
@@ -89,33 +97,33 @@ function Navbar({ onSearch }) {
               <div className="flex flex-col py-2 px-2 gap-x-2 gap-y-2">
                 <h5><strong>Trending Searches</strong></h5> 
                 <div className="flex flex-row gap-3">
-                  <button className="btn btn-sm btn-outline btn-accent">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-                  </svg>
-                    animals
-                  </button>
-                  <button className="btn btn-sm btn-outline btn-accent">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-                  </svg>
-                    nature
-                  </button>
+                  {trendingSearch.map((option) => (
+                    <button 
+                      className="btn btn-sm btn-outline btn-accent"
+                      key={option}
+                      onClick={() => handleDropdownClick(option)}  
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                      </svg>
+                      {option}
+                    </button>
+                  ))}
                 </div>
                 <h5><strong>Trending Topics</strong></h5>
                 <div className="flex flex-row gap-3">
-                  <button className="btn btn-sm btn-outline btn-accent">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-                    </svg>
-                    Wallpaper
-                  </button>
-                  <button className="btn btn-sm btn-outline btn-accent">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-                  </svg>
-                    3D Renders
-                  </button>
+                {trendingTopics.map((option) => (
+                    <button 
+                      className="btn btn-sm btn-outline btn-accent"
+                      key={option}
+                      onClick={() => handleDropdownClick(option)}  
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                      </svg>
+                      {option}
+                    </button>
+                  ))}
                 </div>
               </div>
                 
