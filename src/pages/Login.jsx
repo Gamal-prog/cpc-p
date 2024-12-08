@@ -127,43 +127,105 @@ const App = () => {
               <h1 className="text-5xl font-bold mb-10">Join Vibe</h1>
             </div>
             
-            <form>
-              <div className="flex flex-row mb-8">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="input input-bordered w-full mr-2"
-                />
-                <input
-                  type="text"
-                  placeholder="Lastname"
-                  className="input input-bordered w-full ml-2"
-                />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className={`flex flex-row ${errors.name ? 'mb-6' : 'mb-8'}`}>
+                <label className="form-control w-full">
+                  <div className="label">
+                    { errors.name && <span className="label-text text-error">{errors.name.message}</span> }
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    // className="input input-bordered w-full mr-2"
+                    className={`input input-bordered w-full ${errors.name && "input-error"} mr-2`}
+                    {...register("name", { required: "Name is required" })}
+                  />
+                </label>
+                <label className="form-control w-full">
+                  <div className="label">
+                    { errors.lastName && <span className="label-text text-error">{errors.lastName.message}</span> }
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Lastname"
+                    // className="input input-bordered w-full ml-2"
+                    className={`input input-bordered w-full ${errors.lastName && "input-error"} ml-2`}
+                    {...register("lastName", { required: "Last Name is required" })}
+                  />
+                </label>
               </div>
               
-              <input
+              {/* <input
                 type="email"
                 placeholder="Email"
                 className="input input-bordered w-full mb-8"
-              />
-              <input
+              /> */}
+              <label className="form-control w-full">
+                <div className="label">
+                  { errors.email && <span className="label-text text-error">{errors.email.message}</span> }
+                </div>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  // className="input input-bordered w-full mb-6 "
+                  className={`input input-bordered w-full ${errors.email && "input-error"} ${errors.email ? 'mb-6' : 'mb-8'}`}
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalid email address",
+                    },
+                  })}
+                />
+              </label>
+              {/* <input
                 type="text"
                 placeholder="Username"
                 className="input input-bordered w-full mb-8"
-              />
-              <input
+              /> */}
+              <label className="form-control w-full">
+                  <div className="label">
+                    { errors.username && <span className="label-text text-error">{errors.username.message}</span> }
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    // className="input input-bordered w-full ml-2"
+                    className={`input input-bordered w-full ${errors.username && "input-error"} ${errors.username ? 'mb-6' : 'mb-8'}`}
+                    {...register("username", { required: "Username is required" })}
+                  />
+                </label>
+              {/* <input
                 type="password"
                 placeholder="Password"
                 className="input input-bordered w-full mb-8"                          
-              />
-              <button className="btn btn-primary w-full">Join</button>
+              /> */}
+              <label className="form-control w-full">
+                <div className="label">
+                  { errors.password && <span className="label-text text-error">{errors.password.message}</span> }
+                </div>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  // className="input input-bordered w-full mb-6"
+                  className={`input input-bordered w-full ${errors.password && "input-error"} ${errors.password ? 'mb-6' : 'mb-8'}`}
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 8,
+                      message: "Password must be at least 8 characters",
+                    },
+                  })}
+                />
+              </label>
+              <button type="submit" className="btn btn-primary w-full">Join</button>
             </form>
             <div className=" text-black text-center p-4">
               <p> 
                 Already have an account? 
                 {' '}
                 <button
-                  className="underline text-sm text-gray-400"
+                  className="underline text-gray-400"
                   onClick={handleToggle}
                 >
                 Login
