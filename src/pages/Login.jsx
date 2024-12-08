@@ -1,9 +1,21 @@
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 const App = () => {
   const [isSignUp, setIsSignUp] = useState(false);
 
   const handleToggle = () => setIsSignUp(!isSignUp);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("Form Data:", data);
+    //logic of working with form data
+  };
 
   return (
     <div className="relative flex justify-center items-center">
@@ -48,25 +60,55 @@ const App = () => {
             </div>
 
             <div className="divider my-6">OR</div>
-            <form>
-              <input
-                type="email"
-                placeholder="Email"
-                className="input input-bordered w-full mb-6"
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="input input-bordered w-full mb-6"
-              />
-              <button className="btn btn-primary w-full ">Login</button>
+
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <label className="form-control w-full">
+                <div className="label">
+                  { errors.email && <span className="label-text text-error">{errors.email.message}</span> }
+                </div>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  // className="input input-bordered w-full mb-6 "
+                  className={`input input-bordered w-full ${errors.email && "input-error"} ${errors.email ? 'mb-4' : 'mb-6'}`}
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalid email address",
+                    },
+                  })}
+                />
+              </label>
+              {/* {errors.email && <p className="text-error text-sm">{errors.email.message}</p>} */}
+              <label className="form-control w-full">
+                <div className="label">
+                  { errors.password && <span className="label-text text-error">{errors.password.message}</span> }
+                </div>
+              
+                <input
+                  type="password"
+                  placeholder="Password"
+                  // className="input input-bordered w-full mb-6"
+                  className={`input input-bordered w-full mb-6 ${errors.password && "input-error"}`}
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 8,
+                      message: "Password must be at least 8 characters",
+                    },
+                  })}
+                />
+              </label>
+              {/* {errors.password && <p className="text-error text-sm">{errors.password.message}</p>} */}
+              <button type="submit" className="btn btn-primary w-full ">Login</button>
             </form>
             <div className=" text-black text-center p-4">
               <p>
                 Don't have an account yet?
                 {' '}
                 <button
-                  className="underline text-sm text-gray-400"
+                  className="underline  text-gray-400"
                   onClick={handleToggle}
                 > 
                 Join 
