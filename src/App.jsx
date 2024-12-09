@@ -108,6 +108,7 @@ import Home from './pages/Home.jsx';
 import Help from './pages/Help.jsx';  
 import Contact from './pages/Contact.jsx';
 import Login from './pages/Login.jsx'
+import About from './pages/About.jsx'
 import { PhotoProvider } from './api/PhotoContext.jsx';
 
 function App() {
@@ -129,7 +130,7 @@ function App() {
           path="/about"
           element={
             <FullLayout>
-              {/* <About /> */}
+              <About />
             </FullLayout>
           }
         />

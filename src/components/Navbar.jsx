@@ -49,6 +49,14 @@ function Navbar({/*{ onSearch }*/}) {
   const handleDropdownClick = (option) => {
     setQuery(option); // Устанавливаем выбранное значение в поле ввода
     onSearch(option); // Вызываем поиск по выбранному значению
+
+    // setRecentSearches((prevSearches) => {
+    //   if (!prevSearches.includes(query)) {
+    //     // Добавляем новый запрос и ограничиваем список до 9 последних
+    //     return [query, ...prevSearches].slice(0, 9);
+    //   }
+    //   return prevSearches;
+    // });
   };
 
   const [recentSearches, setRecentSearches] = useState([]);
@@ -61,7 +69,6 @@ function Navbar({/*{ onSearch }*/}) {
       {/* Логотип */}
         
         <Link to="/" className="btn btn-ghost normal-case px-1">
-
           <Logo_animation />
         </Link>
       
@@ -288,9 +295,9 @@ function Navbar({/*{ onSearch }*/}) {
             <li>
               
               <ul>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact us</a></li>
-                <li><a href="">Help center</a></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact-us">Contact us</Link></li>
+                <li><Link to="/help-center">Help center</Link></li>
                 <div className="flex flex-row">
                   <li>
                     <a href="https://web.whatsapp.com">
