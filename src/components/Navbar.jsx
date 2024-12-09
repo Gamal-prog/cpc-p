@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Logo_animation } from './Logo_animation.jsx'
+import { PhotoContext } from '../api/PhotoContext.jsx'
 
-function Navbar({ onSearch }) {
+function Navbar({/*{ onSearch }*/}) {
   const isAuthenticated = false; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
@@ -21,15 +22,16 @@ function Navbar({ onSearch }) {
     };
 
     //f
+    const { handleSearch } = useContext(PhotoContext);
     const [query, setQuery] = useState("");
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
 
-  const handleSearch = () => {
+  const onSearch = () => {
     if (query.trim()) {
-      onSearch(query);
+      handleSearch(query);
     }
 
     setRecentSearches((prevSearches) => {
@@ -73,7 +75,7 @@ function Navbar({ onSearch }) {
           onBlur={handleBlur}
         >
           {/* Иконка лупы */}
-          <span className="pl-3 text-gray-500" onClick={handleSearch}>
+          <span className="pl-3 text-gray-500" onClick={onSearch}>
           
             <svg
               xmlns="http://www.w3.org/2000/svg"
