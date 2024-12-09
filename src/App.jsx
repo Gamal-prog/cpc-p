@@ -102,7 +102,8 @@ import { useEffect, useState } from 'react'
   
 //   export default App
 import FullLayout from './layouts/FullLayout.jsx';
-import PartLayout from './layouts/PartLayout.jsx';
+import TopLayout from './layouts/TopLayout.jsx';
+import BottomLayout from './layouts/BottomLayout.jsx'
 import NullLayout from './layouts/NullLayout.jsx';
 import Home from './pages/Home.jsx';
 import Help from './pages/Help.jsx';  
@@ -121,9 +122,9 @@ function App() {
         <Route
           path="/"
           element={
-            <PartLayout>
+            <TopLayout>
               <Home />
-            </PartLayout>
+            </TopLayout>
           }
         />
         <Route
@@ -145,9 +146,9 @@ function App() {
         <Route
           path="/help-center"
           element={
-            <FullLayout>
+            <BottomLayout>
               <Help />
-            </FullLayout>
+            </BottomLayout>
           }
         />
 

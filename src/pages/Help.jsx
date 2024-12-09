@@ -2,9 +2,10 @@ function Help() {
  
     return (
         <>
-        <div className="flex justify-center bg-black h-32 py-6">
-            <div className="flex flex-col">
-                <h1 className="text-white">Advice and answers from the Unsplash Team</h1>
+        
+        <div className=" bg-black h-32 py-6">
+            
+                <h1 className="text-white text-2xl font-bold">Advice and answers from the Unsplash Team</h1>
                 <label className="input input-bordered flex items-center gap-2">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +19,7 @@ function Help() {
                     </svg>
                     <input type="text" className="grow" placeholder="Search" />
                 </label>
-            </div>
-
+                
         </div>
 
         <div className="flex justify-center my-10">

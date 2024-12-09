@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar"
 
-function PartLayout({ children }) {
+function TopLayout({ children }) {
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -12,4 +12,4 @@ function PartLayout({ children }) {
     );
   };
   
-export default PartLayout
+export default TopLayout
