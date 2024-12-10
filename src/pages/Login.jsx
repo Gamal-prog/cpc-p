@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { Link } from "react-router-dom";
 
 const App = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -246,6 +247,16 @@ const App = () => {
               backgroundRepeat: "no-repeat",
             }}  
           >
+            <div className="absolute top-2 left-2">
+              <Link to="/">
+                <img
+                  src="/logo.jpg"
+                  alt="Small Icon"
+                  className="w-14 h-14 object-contain" 
+                />
+              </Link>
+            </div>
+
             <h1 className="text-4xl font-bold mb-4">
               {isSignUp ? 'Hello, Friend!' : 'Welcome Back!'}
             </h1>
