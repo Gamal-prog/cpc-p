@@ -2,7 +2,7 @@ import React from 'react'
 
 function Card({ photo }) {
   return (
-    <div className="relative group rounded-lg overflow-hidden bg-white">
+    <div className="relative group rounded-lg overflow-hidden bg-white mb-4">
       {/* Image */}
       <img
         className="w-full h-full object-cover"

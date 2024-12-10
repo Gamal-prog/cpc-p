@@ -30,6 +30,11 @@ function Home() {
     // };
     const { photos, loading } = useContext(PhotoContext);
 
+    const columns = [[], [], []];
+    photos.forEach((photo, index) => {
+        columns[index % 3].push(photo); // Распределяем фото по колонкам циклично
+    });
+
     return (
         <>
     <div className="grid grid-cols-12 gap-4 mt-6">
@@ -58,13 +63,23 @@ function Home() {
                       )}
                   </div>
                    : (
-                    <div className="grid grid-cols-12 gap-4 mt-14">
-                      {photos.map((photo) => (
-                        <div className="col-span-4">
-                          <Card key={photo.id} photo={photo} />
-                        </div> 
+                    // <div className="grid grid-cols-12 gap-4 mt-14">
+                    //   {photos.map((photo) => (
+                    //     <div className="col-span-4">
+                    //       <Card key={photo.id} photo={photo} />
+                    //     </div> 
+                    //   ))}
+                    // </div>
+                    <div className="grid grid-cols-3 gap-4 mt-14">
+                      {columns.map((column, index) => (
+                          <div className="flex flex-col" key={index}>
+                              {column.map((photo) => (
+                                  <Card key={photo.id} photo={photo} />
+                              ))}
+                          </div>
                       ))}
                     </div>
+
                   )}
         </>
     );
