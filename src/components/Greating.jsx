@@ -2,7 +2,7 @@ function Greating() {
     return (
       <div className="grid grid-cols-1 h-full">
         <div className="content-end">
-          <h1 className="text-4xl font-bold">Vibe</h1>
+          <h1 className="text-4xl font-bold">Seeglance</h1>
           <p className="mt-2 text-lg">
             The internet’s source for visuals. <br />
             Powered by creators everywhere.
