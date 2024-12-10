@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Contact() {
-    const isAuthenticated = false;
+    const isAuthenticated = true;
     const username = 'Jojo'
 
     return (

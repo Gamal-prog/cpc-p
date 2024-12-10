@@ -246,7 +246,7 @@ const App = () => {
               backgroundRepeat: "no-repeat",
             }}  
           >
-            <h1 className="text-3xl font-bold mb-4">
+            <h1 className="text-4xl font-bold mb-4">
               {isSignUp ? 'Hello, Friend!' : 'Welcome Back!'}
             </h1>
             <p className="mb-8">
