@@ -1,12 +1,23 @@
+import { Link } from "react-router-dom";
 function Help() {
  
     return (
         <>
         
-        <div className=" bg-black h-32 py-6">
-            
+        <div className="flex justify-center bg-black h-64 py-6">
+        <div className="grid grid-cols-2 gap-6"> 
+            <div className="bg-red-300 h-0 w-96"></div>
+            <div className="bg-red-700 h-0 w-96"></div>
+            <div className="col-span-2">
+            <Link to="/">
+                <img 
+                src="/n-l.jpg" 
+                alt="named-logo" 
+                className="w-auto h-12 mb-8"
+                />
+            </Link>
                 <h1 className="text-white text-2xl font-bold">Advice and answers from the Unsplash Team</h1>
-                <label className="input input-bordered flex items-center gap-2">
+                <label className="input rounded-md flex items-center gap-2 mt-4 bg-zinc-600 text-white text-md">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
@@ -19,7 +30,10 @@ function Help() {
                     </svg>
                     <input type="text" className="grow" placeholder="Search" />
                 </label>
-                
+            </div>
+        </div>
+            
+
         </div>
 
         <div className="flex justify-center my-10">

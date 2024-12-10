@@ -125,7 +125,7 @@ const App = () => {
             } transition-all duration-700`}
           >
             <div className="flex justify-center">
-              <h1 className="text-5xl font-bold mb-10">Join Vibe</h1>
+              <h1 className="text-5xl font-bold mb-10">Join Seeglance</h1>
             </div>
             
             <form onSubmit={handleSubmit(onSubmit)}>

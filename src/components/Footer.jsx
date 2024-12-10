@@ -2,6 +2,13 @@ function Footer() {
     return (
         <>
             <footer className="footer footer-center bg-base-100 text-base-content rounded p-10 border">
+            {/* <nav className="grid grid-flow-col gap-4">
+                <img 
+                    src="/image.png" 
+                    alt="named-logo" 
+                    className="h-10 w-auto"
+                />
+            </nav> */}
             <nav className="grid grid-flow-col gap-4 text-gray-400">
                 <a className="link link-hover">About us</a>
                 <a className="link link-hover">Contact</a>
