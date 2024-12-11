@@ -4,7 +4,7 @@ function Greating() {
         <>
             <div className="grid">
                 <div className="content-end">
-                    <h1 className="stat-value">Vibe</h1>
+                    <h1 className="stat-value">Seeglance</h1>
                     <p className="mt-2">
                         The internet’s source for visuals. <br />
                         Powered by creators everywhere.
