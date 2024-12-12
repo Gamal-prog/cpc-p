@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { getPhotos, getPhotosBySearch } from '../api/query';
+import { getPhotos, getPhotosBySearch } from './query.js';
 
 export const PhotoContext = createContext();
 
@@ -12,7 +12,7 @@ export const PhotoProvider = ({ children }) => {
       setLoading(true);
       const data = await getPhotos(21);
       setPhotos(data);
-      //setLoading(false);
+      //?setLoading(false);
     };
 
     loadPhotos();
