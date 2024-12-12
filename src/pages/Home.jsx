@@ -2,34 +2,15 @@ import Greating from "../components/Greating";
 import Statistics from "../components/Statistics";
 import HomeImage from "../components/HomeImage";
 import Card from "../components/Card";
-// import { useEffect, useState } from 'react'
-// import { getPhotos, getPhotosBySearch } from '../api/query'
+
 import { useContext } from 'react';
 import { PhotoContext } from "../api/PhotoContext";
 
+
 function Home() {
-    // const [photos, setPhotos] = useState([]);
-    // const [loading, setLoading] = useState(true);
-  
-    // useEffect(() => {
-    //   const loadPhotos = async () => {
-    //     setLoading(true);
-    //     const data = await getPhotos(21); // Запрашиваем 20 фото
-    //     setPhotos(data); // Сохраняем фото в state
-    //     setLoading(false);
-    //   };
-  
-    //   loadPhotos();
-    // }, []);
-  
-    // const handleSearch = async (query) => {
-    //   setLoading(true);
-    //   const data = await getPhotosBySearch(query, 21); // Поиск фотографий
-    //   setPhotos(data);
-    //   setLoading(false);
-    // };
     const { photos, loading } = useContext(PhotoContext);
 
+    // const [selectedCard, setSelectedCard]=useState({})
     const columns = [[], [], []];
     photos.forEach((photo, index) => {
         columns[index % 3].push(photo); // Распределяем фото по колонкам циклично
@@ -74,13 +55,15 @@ function Home() {
                       {columns.map((column, index) => (
                           <div className="flex flex-col" key={index}>
                               {column.map((photo) => (
-                                  <Card key={photo.id} photo={photo} />
+                                  <Card key={photo.id} photo={photo}  /> //onClick=() => {setSelectedCard(photo)}
                               ))}
                           </div>
                       ))}
                     </div>
 
                   )}
+
+                  {/* <ImageModal isShown selectedCard /> */}
         </>
     );
 }
