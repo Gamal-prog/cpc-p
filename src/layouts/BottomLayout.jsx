@@ -10,6 +10,6 @@ function TopLayout({ children }) {
             <Footer />
       </div>
     );
-  };
+  }
   
 export default TopLayout

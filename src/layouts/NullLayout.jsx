@@ -5,6 +5,6 @@ function NullLayout({ children }) {
         {children}
       </div>
     );
-  };
+  }
   
 export default NullLayout

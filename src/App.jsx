@@ -111,6 +111,8 @@ import Contact from './pages/Contact.jsx';
 import Login from './pages/Login.jsx'
 import About from './pages/About.jsx'
 import { PhotoProvider } from './api/PhotoContext.jsx';
+import Profile from './pages/Profile';
+import Toplayout2 from "./layouts/Toplayout2.jsx";
 
 function App() {
   
@@ -161,6 +163,14 @@ function App() {
             </NullLayout>
           }
         />
+              <Route path="/profile" element={
+
+                  <Toplayout2>
+                      <Profile />
+                  </Toplayout2>
+
+
+              } />
       </Routes>
     </Router>
     </PhotoProvider>
