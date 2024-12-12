@@ -5,7 +5,7 @@ import { Logo_animation } from './Logo_animation.jsx'
 import { PhotoContext } from '../api/PhotoContext.jsx'
 
 function Navbar({/*{ onSearch }*/}) {
-  const isAuthenticated = false; // Используйте состояние для управления аутентификацией
+  const isAuthenticated = true; // Используйте состояние для управления аутентификацией
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -246,7 +246,7 @@ function Navbar({/*{ onSearch }*/}) {
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box mt-4 w-52 p-2 shadow border">
                 <li>
                   <ul>
-                    <li><a>View profile</a></li>
+                    <li><Link to='/profile'>View profile</Link></li>
                     <li><a>Logout</a></li>
                   </ul>
                 </li>
