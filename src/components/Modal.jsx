@@ -1,9 +1,20 @@
 import React from 'react';
+import { saveAs } from "file-saver";
 
 const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
   if (!isOpen) return null;
 
   const { image, author, description, date, downloadLink } = content || {};
+
+  const handleDownload = (imageUrl) => {
+    if (!imageUrl) {
+      alert("Изображение недоступно для загрузки.");
+      return;
+    }
+
+    saveAs(imageUrl, 'downloaded-image.jpg');
+  };
+  
 
   return (
     <dialog className="modal modal-open">
@@ -46,11 +57,12 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
 
               {/* Кнопки действий */}
               <div className="flex gap-2">
-                <a
+                <button
                   href={downloadLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-80 text-gray-700 rounded-lg border hover:bg-opacity-100 transition duration-200"
+                  onClick={() => handleDownload(image)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +76,7 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
                     <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
                   </svg>
                   <span>Download</span>
-                </a>
+                </button>
                 <button className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-80 text-gray-700 rounded-lg border hover:bg-opacity-100 transition duration-200">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
