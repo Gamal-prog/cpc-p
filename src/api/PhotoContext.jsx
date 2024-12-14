@@ -12,7 +12,7 @@ export const PhotoProvider = ({ children }) => {
       setLoading(true);
       const data = await getPhotos(21);
       setPhotos(data);
-      // setLoading(false);
+      setLoading(false);
     };
 
     loadPhotos();

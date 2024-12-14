@@ -3,18 +3,39 @@ import Statistics from "../components/Statistics";
 import HomeImage from "../components/HomeImage";
 import Card from "../components/Card";
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { PhotoContext } from "../api/PhotoContext";
+
+import Modal from "../components/Modal";
 
 
 function Home() {
     const { photos, loading } = useContext(PhotoContext);
 
-    // const [selectedCard, setSelectedCard]=useState({})
     const columns = [[], [], []];
     photos.forEach((photo, index) => {
-        columns[index % 3].push(photo); // Распределяем фото по колонкам циклично
+        columns[index % 3].push(photo); 
     });
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
+
+  const openModal = (index) => {
+    setCurrentIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? photos.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === photos.length - 1 ? 0 : prevIndex + 1));
+  };
 
     return (
         <>
@@ -44,28 +65,63 @@ function Home() {
                       )}
                   </div>
                    : (
-                    // <div className="grid grid-cols-12 gap-4 mt-14">
+                    
+                    <div className="grid grid-cols-3 gap-4 mt-14">
+    
+                      {columns.map((column, columnIndex) => (
+                        <div className="flex flex-col" key={columnIndex}>
+                          {column.map((photo, rowIndex) => (
+                            <Card
+                              key={photo.id}
+                              photo={photo}
+                              onClick={() => openModal(rowIndex * Math.ceil(photos.length / 7) + columnIndex)}
+                            />
+                          ))}
+                        </div>
+                      ))}
+
+                      {isModalOpen && currentIndex !== null && (
+                        <Modal
+                          isOpen={isModalOpen}
+                          onClose={closeModal}
+                          content={{
+                            image: photos[currentIndex].urls.small,
+                            author: photos[currentIndex].user.name,
+                            description: photos[currentIndex].description,
+                            date: photos[currentIndex].created_at,
+                          }}
+                          onPrev={handlePrev}
+                          onNext={handleNext}
+                        />
+                      )}
+                    </div>
+
+                  )}
+
+        </>
+    );
+}
+
+export default Home
+
+// <div className="grid grid-cols-12 gap-4 mt-14">
                     //   {photos.map((photo) => (
                     //     <div className="col-span-4">
                     //       <Card key={photo.id} photo={photo} />
                     //     </div> 
                     //   ))}
                     // </div>
-                    <div className="grid grid-cols-3 gap-4 mt-14">
-                      {columns.map((column, index) => (
-                          <div className="flex flex-col" key={index}>
-                              {column.map((photo) => (
-                                  <Card key={photo.id} photo={photo}  /> //onClick=() => {setSelectedCard(photo)}
-                              ))}
-                          </div>
-                      ))}
-                    </div>
 
-                  )}
-
-                  {/* <ImageModal isShown selectedCard /> */}
-        </>
-    );
-}
-
-export default Home
+                    // <div className="grid grid-cols-3 gap-4 mt-14">
+                    //   {columns.map((column, index) => (
+                    //       <div className="flex flex-col" key={index}>
+                    //           {column.map((photo) => (
+                    //               <Card 
+                    //                 key={photo.id} 
+                    //                 photo={photo}
+                                  
+                    //               /> //onClick=() => {setSelectedCard(photo)}
+                    //           ))}
+                    //       </div>
+                    //   ))}
+                    // </div>
