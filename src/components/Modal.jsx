@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { saveAs } from "file-saver";
 
-const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
+const Modal = ({ isOpen, onClose, content, onPrev, onNext, isRed, toggleColor }) => {
   if (!isOpen) return null;
 
   const { image, author, description, date, downloadLink } = content || {};
@@ -15,11 +15,11 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
     saveAs(imageUrl, 'downloaded-image.jpg');
   };
 
-  const [isRed, setIsRed] = useState(false); // Состояние для управления цветом
+  // const [isRed, setIsRed] = useState(false); // Состояние для управления цветом
 
-  const toggleColor = () => {
-    setIsRed(!isRed); // Меняем состояние при каждом нажатии
-  };
+  // const toggleColor = () => {
+  //   setIsRed(!isRed); // Меняем состояние при каждом нажатии
+  // };
   
 
   return (

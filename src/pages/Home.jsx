@@ -37,6 +37,16 @@ function Home() {
     setCurrentIndex((prevIndex) => (prevIndex === photos.length - 1 ? 0 : prevIndex + 1));
   };
 
+  // const [isRed, setIsRed] = useState(false);
+  const [likedCards, setLikedCards] = useState({}); // Общее состояние цвета
+
+  const toggleColor = (cardId) => {
+    setLikedCards((prevState) => ({
+      ...prevState,
+      [cardId]: !prevState[cardId],
+    }));
+  };
+
     return (
         <>
     <div className="grid grid-cols-12 gap-4 mt-6">
@@ -75,6 +85,8 @@ function Home() {
                               key={photo.id}
                               photo={photo}
                               onClick={() => openModal(rowIndex * Math.ceil(photos.length / 7) + columnIndex)}
+                              isRed={likedCards[photo.id] || false}
+                              toggleColor={() => toggleColor(photo.id)}
                             />
                           ))}
                         </div>
@@ -92,6 +104,8 @@ function Home() {
                           }}
                           onPrev={handlePrev}
                           onNext={handleNext}
+                          isRed={likedCards[photos[currentIndex].id] || false}
+                          toggleColor={() => toggleColor(photos[currentIndex].id)}
                         />
                       )}
                     </div>

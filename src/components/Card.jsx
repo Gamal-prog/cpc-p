@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function Card({ photo, onClick }) {
+function Card({ photo, onClick, isRed, toggleColor }) {
 
-  const [isRed, setIsRed] = useState(false); 
+  // const [isRed, setIsRed] = useState(false); 
   
-  const toggleColor = (e) => {
-    e.stopPropagation();
-    setIsRed(!isRed); 
-  };
+  // const toggleColor = (e) => {
+  //   e.stopPropagation();
+  //   setIsRed(!isRed); 
+  // };
 
   return (
     <div className="relative group rounded-lg overflow-hidden bg-white mb-4"
@@ -26,7 +26,10 @@ function Card({ photo, onClick }) {
         <div className="flex justify-end gap-2">
           <button 
           className="p-2 rounded-sm bg-white shadow-md hover:bg-gray-200"
-          onClick={toggleColor}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleColor();
+          }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
