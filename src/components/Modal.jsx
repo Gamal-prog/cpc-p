@@ -15,11 +15,21 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext, isRed, toggleColor })
     saveAs(imageUrl, 'downloaded-image.jpg');
   };
 
-  // const [isRed, setIsRed] = useState(false); // Состояние для управления цветом
+  const [isCopied, setIsCopied] = useState(false);
 
-  // const toggleColor = () => {
-  //   setIsRed(!isRed); // Меняем состояние при каждом нажатии
-  // };
+  const handleShare = async () => {
+    if (image) {
+      try {
+        await navigator.clipboard.writeText(image);
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000); 
+      } catch (error) {
+        console.error("Не удалось скопировать ссылку: ", error);
+      }
+    } else {
+      alert("Ссылка недоступна для копирования.");
+    }
+  };
   
 
   return (
@@ -83,12 +93,43 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext, isRed, toggleColor })
                   </svg>
                   <span>Download</span>
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-80 text-gray-700 rounded-lg border hover:bg-opacity-100 transition duration-200">
+                <button
+                  className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-80 text-gray-700 rounded-lg border hover:bg-opacity-100 transition duration-200"
+                  onClick={handleShare}
+                >
+                  {isCopied ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-check-lg text-green-500"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-link-45deg text-gray-700"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                      <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                    </svg>
+                  )}
+                  <span>{isCopied ? "Copied" : "Copy"}</span>
+                </button>
+
+                {/* <button className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-80 text-gray-700 rounded-lg border hover:bg-opacity-100 transition duration-200">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
                   </svg>
                   Share
-                </button>
+                </button> */}
               </div>
             </div>
 
