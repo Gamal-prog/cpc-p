@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { saveAs } from "file-saver";
 
 const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
@@ -13,6 +13,12 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
     }
 
     saveAs(imageUrl, 'downloaded-image.jpg');
+  };
+
+  const [isRed, setIsRed] = useState(false); // Состояние для управления цветом
+
+  const toggleColor = () => {
+    setIsRed(!isRed); // Меняем состояние при каждом нажатии
   };
   
 
@@ -116,13 +122,16 @@ const Modal = ({ isOpen, onClose, content, onPrev, onNext }) => {
 
         {/* Закрытие */}
         <div className="absolute top-4 right-4 space-x-2">
-          <button className="p-2 rounded-sm bg-white hover:bg-gray-200 border">
+          <button 
+            className="p-2 rounded-sm bg-white hover:bg-gray-200 border"
+            onClick={toggleColor}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              className="bi bi-heart-fill text-gray-700"
+              className={`bi bi-heart-fill ${ isRed ? 'text-red-500' : 'text-gray-700'}`}
               viewBox="0 0 16 16"
             >
               <path

@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Card({ photo, onClick }) {
+
+  const [isRed, setIsRed] = useState(false); 
+  
+  const toggleColor = (e) => {
+    e.stopPropagation();
+    setIsRed(!isRed); 
+  };
+
   return (
     <div className="relative group rounded-lg overflow-hidden bg-white mb-4"
     onClick={onClick}
@@ -16,13 +24,17 @@ function Card({ photo, onClick }) {
       <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4">
         {/* Top Right Buttons */}
         <div className="flex justify-end gap-2">
-          <button className="p-2 rounded-sm bg-white shadow-md hover:bg-gray-200">
+          <button 
+          className="p-2 rounded-sm bg-white shadow-md hover:bg-gray-200"
+          onClick={toggleColor}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              className="bi bi-heart-fill text-gray-700"
+              // className="bi bi-heart-fill text-gray-700"
+              className={`bi bi-heart-fill ${ isRed ? 'text-red-500' : 'text-gray-700'}`}
               viewBox="0 0 16 16"
             >
               <path
