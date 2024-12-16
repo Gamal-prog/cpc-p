@@ -1,13 +1,16 @@
 import React from 'react'
+import { saveAs } from "file-saver";
 
 function Card({ photo, onClick, isRed, toggleColor }) {
 
-  // const [isRed, setIsRed] = useState(false); 
+  const handleDownload = (imageUrl) => {
+      if (!imageUrl) {
+        alert("Изображение недоступно для загрузки.");
+        return;
+      }
   
-  // const toggleColor = (e) => {
-  //   e.stopPropagation();
-  //   setIsRed(!isRed); 
-  // };
+      saveAs(imageUrl, 'downloaded-image.jpg');
+    };
 
   return (
     <div className="relative group rounded-lg overflow-hidden bg-white mb-4"
@@ -82,11 +85,15 @@ function Card({ photo, onClick, isRed, toggleColor }) {
           </div>
 
           {/* Download Button */}
-          <a
+          <button
             href={photo.links.download}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-80 text-gray-700 rounded-lg shadow-md hover:bg-opacity-100 transition duration-200"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDownload(photo.urls.small);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +107,7 @@ function Card({ photo, onClick, isRed, toggleColor }) {
               <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
             </svg>
             <span>Download</span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
