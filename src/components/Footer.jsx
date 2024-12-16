@@ -29,7 +29,7 @@ function Footer() {
                 </div>
             </nav>
             <aside>
-                <p className="text text-gray-400 text-sm">Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                <p className="text text-gray-400 text-sm">Copyright © {new Date().getFullYear()} - Незнаю чо писать поэтому накачу всякий бред а вы сделайте вид что типа круто</p>
             </aside>
         </footer>
         </>
