@@ -15,7 +15,7 @@ function Footer() {
                 <Link to="/about" className="link link-hover">About us</Link>
                 <Link to="/contact-us" className="link link-hover">Contact</Link>
                 <Link to="/help-center" className="link link-hover">Help Center</Link>
-                <Link to="/" className="link link-hover">Jobs</Link>
+                <Link to="/" className="link link-hover">Home</Link>
             </nav>
             <nav>
                 <div className="grid grid-flow-col gap-4">

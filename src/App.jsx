@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar.jsx'
+
 import HomeImage from './components/HomeImage.jsx'
 import Greating from './components/Greating.jsx';
 import Statistics from './components/Statistics.jsx'
@@ -111,6 +111,9 @@ import Contact from './pages/Contact.jsx';
 import Login from './pages/Login.jsx'
 import About from './pages/About.jsx'
 import { PhotoProvider } from './api/PhotoContext.jsx';
+import Profile from './pages/Profile.jsx';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   
@@ -159,6 +162,16 @@ function App() {
             <NullLayout>
               <Login />
             </NullLayout>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+              <>
+                <Profile />
+                <Footer />
+              </>
           }
         />
       </Routes>
